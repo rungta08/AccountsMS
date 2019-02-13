@@ -1,0 +1,51 @@
+swagger: "2.0"            # Swagger version
+
+info:                     # This object provides metadata about the API.
+  version: 1.0.0            
+  title: AccountMS Details
+  description: A simple Account API
+
+basePath: /api            # Path relative to which all API calls will be made 
+
+paths: 
+  /accounts:
+    get:
+      description: Returns all accounts from the system
+      operationId: findAccount
+      responses:
+        '200':
+          description: A list of accounts
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Movie'
+            example:
+              _id: 124123423fefs
+              accountNo: ACC101
+              type: Current
+              branch: Pune
+              balance: 4000
+              pancard: 10001
+
+definitions:
+  Account:
+    type: object
+    properties:
+      account_id:
+        type: string
+        description: Unique identifier representing a specific Account.
+      accountNo:
+        type: string
+      type:
+        type: String
+        description: Type of account
+      branch:
+        type: String
+        description: Branch of the bank
+      balance:
+        type: String
+        description: Balance of the account
+      pancard:
+        type: String
+        decription: Unique Identifier to each person
+        
